@@ -93,14 +93,14 @@ tests_json = """{
       "python3 compare.py ./code/out/UJ/UJ.trace ./code/ref/UJ/UJ.trace": 10
     }
   },
-  "slt": {
+  "sgt": {
      "Part1": {
-       "./riscv -d ./code/input/custom_slt.input > code/out/custom_slt.solution": 0,
-       "python3 compare.py ./code/out/custom_slt.solution ./code/ref/custom_slt.solution": 15
+       "./riscv -d ./code/input/custom_sgt.input > code/out/custom_sgt.solution": 0,
+       "python3 compare.py ./code/out/custom_sgt.solution ./code/ref/custom_sgt.solution": 15
      },
      "Part2": {
-       "timeout 60 ./riscv -e -r -s ./code/input/slt_data.input  -a 0x8,0x3000 ./code/input/custom_slt.input > code/out/custom_slt.trace": 0,
-       "python3 compare.py ./code/out/custom_slt.trace ./code/ref/custom_slt.trace": 45
+       "timeout 60 ./riscv -e -r -s ./code/input/sgt_data.input  -a 0x8,0x3000 ./code/input/custom_sgt.input > code/out/custom_sgt.trace": 0,
+       "python3 compare.py ./code/out/custom_sgt.trace ./code/ref/custom_sgt.trace": 45
      }
    },
   "All": {
