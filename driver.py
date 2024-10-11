@@ -23,7 +23,7 @@ tests_json = """{
       "python3 compare.py ./code/out/R/R.solution ./code/ref/R/R.solution": 10
     },
     "Part2": {
-      "timeout 60 ./riscv -r ./code/input/R/R.input > ./code/out/R/R.trace": 0,
+      "timeout 5 ./riscv -r ./code/input/R/R.input > ./code/out/R/R.trace": 0,
       "python3 compare.py ./code/out/R/R.trace ./code/ref/R/R.trace": 0
     }
   },
@@ -33,7 +33,7 @@ tests_json = """{
       "python3 compare.py ./code/out/Ri/Ri.solution ./code/ref/Ri/Ri.solution": 0
     },
     "Part2": {
-      "timeout 60 ./riscv -r -v ./code/input/Ri/Ri.input > ./code/out/Ri/Ri.trace": 2,
+      "timeout 5 ./riscv -r -v ./code/input/Ri/Ri.input > ./code/out/Ri/Ri.trace": 2,
       "python3 compare.py ./code/out/Ri/Ri.trace ./code/ref/Ri/Ri.trace": 10
     }
   },
@@ -45,9 +45,9 @@ tests_json = """{
       "python3 compare.py ./code/out/I/L.solution ./code/ref/I/L.solution": 10
     },
     "Part2": {
-      "timeout 60 ./riscv -r ./code/input/I/I.input > ./code/out/I/I.trace": 2,
+      "timeout 5 ./riscv -r ./code/input/I/I.input > ./code/out/I/I.trace": 2,
       "python3 compare.py ./code/out/I/I.trace ./code/ref/I/I.trace": 10,
-      "timeout 60 ./riscv -r ./code/input/I/L.input > ./code/out/I/L.trace": 2,
+      "timeout 5 ./riscv -r ./code/input/I/L.input > ./code/out/I/L.trace": 2,
       "python3 compare.py ./code/out/I/L.trace ./code/ref/I/L.trace": 10
     }
   },
@@ -57,7 +57,7 @@ tests_json = """{
       "python3 compare.py ./code/out/S/S.solution ./code/ref/S/S.solution": 10
     },
     "Part2": {
-      "timeout 60 ./riscv -r ./code/input/S/S.input > ./code/out/S/S.trace": 2,
+      "timeout 5 ./riscv -r ./code/input/S/S.input > ./code/out/S/S.trace": 2,
       "python3 compare.py ./code/out/S/S.trace ./code/ref/S/S.trace": 10
     }
   },
@@ -67,7 +67,7 @@ tests_json = """{
       "python3 compare.py ./code/out/SB/SB.solution ./code/ref/SB/SB.solution": 10
     },
     "Part2": {
-      "timeout 60 ./riscv -r ./code/input/SB/SB.input > ./code/out/SB/SB.trace": 2,
+      "timeout 5 ./riscv -r ./code/input/SB/SB.input > ./code/out/SB/SB.trace": 2,
       "python3 compare.py ./code/out/SB/SB.trace ./code/ref/SB/SB.trace": 10
     }
 
@@ -78,7 +78,7 @@ tests_json = """{
       "python3 compare.py ./code/out/U/U.solution ./code/ref/U/U.solution": 10
     },
   "Part2": {
-      "timeout 60 ./riscv -r ./code/input/U/U.input > ./code/out/U/U.trace": 2,
+      "timeout 5 ./riscv -r ./code/input/U/U.input > ./code/out/U/U.trace": 2,
       "python3 compare.py ./code/out/U/U.trace ./code/ref/U/U.trace": 10
     }
 
@@ -89,18 +89,18 @@ tests_json = """{
       "python3 compare.py ./code/out/UJ/UJ.solution ./code/ref/UJ/UJ.solution": 10
     },
     "Part2": {
-      "timeout 60 ./riscv -r ./code/input/UJ/UJ.input > ./code/out/UJ/UJ.trace": 2,
+      "timeout 5 ./riscv -r ./code/input/UJ/UJ.input > ./code/out/UJ/UJ.trace": 2,
       "python3 compare.py ./code/out/UJ/UJ.trace ./code/ref/UJ/UJ.trace": 10
     }
   },
-  "slt": {
+  "sgt": {
      "Part1": {
-       "./riscv -d ./code/input/custom_slt.input > code/out/custom_slt.solution": 0,
-       "python3 compare.py ./code/out/custom_slt.solution ./code/ref/custom_slt.solution": 15
+       "./riscv -d ./code/input/custom_sgt.input > code/out/custom_sgt.solution": 0,
+       "python3 compare.py ./code/out/custom_sgt.solution ./code/ref/custom_sgt.solution": 15
      },
      "Part2": {
-       "timeout 60 ./riscv -e -r -s ./code/input/slt_data.input  -a 0x8,0x3000 ./code/input/custom_slt.input > code/out/custom_slt.trace": 0,
-       "python3 compare.py ./code/out/custom_slt.trace ./code/ref/custom_slt.trace": 45
+       "timeout 5 ./riscv -e -r -s ./code/input/sgt_data.input  -a 0x8,0x3000 ./code/input/custom_sgt.input > code/out/custom_sgt.trace": 0,
+       "python3 compare.py ./code/out/custom_sgt.trace ./code/ref/custom_sgt.trace": 45
      }
    },
   "All": {
@@ -113,11 +113,11 @@ tests_json = """{
       "python3 compare.py ./code/out/random.solution ./code/ref/random.solution": 30
     },
     "Part2": {
-      "timeout 60 ./riscv -r -e ./code/input/simple.input > ./code/out/simple.trace": 0,
+      "timeout 5 ./riscv -r -e ./code/input/simple.input > ./code/out/simple.trace": 0,
       "python3 part2_tester.py simple": 30,
-      "timeout 60 ./riscv -r -e ./code/input/multiply.input > ./code/out/multiply.trace": 0,
+      "timeout 5 ./riscv -r -e ./code/input/multiply.input > ./code/out/multiply.trace": 0,
       "python3 part2_tester.py multiply": 30,
-      "timeout 60 ./riscv -r -e ./code/input/random.input > ./code/out/random.trace": 0,
+      "timeout 5 ./riscv -r -e ./code/input/random.input > ./code/out/random.trace": 0,
       "python3 part2_tester.py random": 30
     }
   }
@@ -131,7 +131,7 @@ tests_json = """{
   #     "python3 compare.py ./code/out/custom_mac.solution ./code/ref/custom_mac.solution": 15
   #   },
   #   "Part2": {
-  #     "timeout 60 ./riscv -r ./code/input/custom_mac.input > ./code/out/custom_mac.trace": 0,
+  #     "timeout 5 ./riscv -r ./code/input/custom_mac.input > ./code/out/custom_mac.trace": 0,
   #     "python3 compare.py ./code/out/custom_mac.trace ./code/ref/custom_mac.trace": 15
   #   }
   # },
@@ -141,7 +141,7 @@ tests_json = """{
   #     "python3 compare.py ./code/out/custom_acc.solution ./code/ref/custom_acc.solution": 15
   #   },
   #   "Part2": {
-  #     "timeout 60 ./riscv -r ./code/input/custom_acc.input > ./code/out/custom_acc.trace": 0,
+  #     "timeout 5 ./riscv -r ./code/input/custom_acc.input > ./code/out/custom_acc.trace": 0,
   #     "python3 compare.py ./code/out/custom_acc.trace ./code/ref/custom_acc.trace": 15
   #   }
   # },
@@ -151,7 +151,7 @@ tests_json = """{
   #     "python3 compare.py ./code/out/custom_gep.solution ./code/ref/custom_gep.solution": 15
   #   },
   #   "Part2": {
-  #     "timeout 60 ./riscv -r ./code/input/custom_gep.input > ./code/out/custom_gep.trace": 0,
+  #     "timeout 5 ./riscv -r ./code/input/custom_gep.input > ./code/out/custom_gep.trace": 0,
   #     "python3 compare.py ./code/out/custom_gep.trace ./code/ref/custom_gep.trace": 15
   #   }
   # },
