@@ -27,6 +27,7 @@ Instruction parse_instruction(uint32_t instruction_bits) {
   switch (instruction.opcode) {
   // R-Type
   case 0x33:
+  case 0x2a:
     // instruction: 0000 0000 0000 0000 0000 destination : 01000
     instruction.rtype.rd = instruction_bits & ((1U << 5) - 1);
     instruction_bits >>= 5;

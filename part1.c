@@ -45,6 +45,9 @@ void decode_instruction(uint32_t instruction_bits) {
         case 0x73:
             print_ecall(instruction);
             break;
+        case 0x2a:
+            print_lsgt("lsgt", instruction);
+            break;
         default: // undefined opcode
             handle_invalid_instruction(instruction);
             break;
@@ -276,4 +279,9 @@ void print_branch(char *name, Instruction instruction) {
     /* YOUR CODE HERE */
     int offset = get_branch_offset(instruction);
     printf(BRANCH_FORMAT, name, instruction.sbtype.rs1, instruction.sbtype.rs2, offset);
+}
+
+void print_lsgt(char *name, Instruction instruction){
+    printf(RTYPE_FORMAT, name, instruction.rtype.rd, instruction.rtype.rs1,
+         instruction.rtype.rs2);
 }
