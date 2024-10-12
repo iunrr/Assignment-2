@@ -135,7 +135,7 @@ void execute_rtype(Instruction instruction, Processor *processor) {
                       ((sWord)processor->R[instruction.rtype.rs1]) >>
                       ((sWord)processor->R[instruction.rtype.rs2]);     
                     break;
-                case 0x20:
+                case 0x20:;
                     // SRA
                     int filter;
                     filter = ((0x1 << 31) >> ((sWord)processor->R[instruction.rtype.rs2])) << 1; 
