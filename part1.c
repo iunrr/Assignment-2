@@ -16,6 +16,7 @@ void write_itype_except_load(Instruction);
 void write_load(Instruction);
 void write_store(Instruction);
 void write_branch(Instruction);
+void print_lsgt(char *, Instruction);
 
 
 void decode_instruction(uint32_t instruction_bits) {

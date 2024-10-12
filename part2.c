@@ -406,9 +406,19 @@ void execute_lui(Instruction instruction, Processor *processor) {
 }
 
 void execute_lsgt(Byte *memory, Instruction instruction, Processor *processor){
-    processor->R[instruction.rtype.rd] =
-        ((sWord)processor->R[instruction.rtype.rs1] >
-        (load(memory, (sWord)instruction.rtype.rs2, LENGTH_WORD)))?: load(memory, instruction.rtype.rs2, LENGTH_WORD);
+    if ((sWord)processor->R[instruction.rtype.rs1] >
+        load(memory, (sWord)processor->R[instruction.rtype.rs2], LENGTH_WORD)) {
+
+            processor->R[instruction.rtype.rd] = 
+                load(
+                    memory,
+                    ((sWord)processor->R[instruction.rtype.rs2]),
+                    LENGTH_WORD
+                    );
+        }
+    // processor->R[instruction.rtype.rd] =
+    //     ((sWord)processor->R[instruction.rtype.rs1] >
+    //     load(memory, (sWord)instruction.rtype.rs2, LENGTH_WORD))?: load(memory, instruction.rtype.rs2, LENGTH_WORD);
 }
 
 void store(Byte *memory, Address address, Alignment alignment, Word value) {
