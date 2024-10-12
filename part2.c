@@ -12,6 +12,7 @@ void execute_load(Instruction, Processor *, Byte *);
 void execute_store(Instruction, Processor *, Byte *);
 void execute_ecall(Processor *, Byte *);
 void execute_lui(Instruction, Processor *);
+void execute_lsgt(Byte *, Instruction, Processor *);
 
 void execute_instruction(uint32_t instruction_bits, Processor *processor,Byte *memory) {    
     Instruction instruction = parse_instruction(instruction_bits);
@@ -296,6 +297,7 @@ void execute_branch(Instruction instruction, Processor *processor) {
                 ((sWord)processor->R[instruction.sbtype.rs2])){
                 int offset = get_branch_offset(instruction);
                 processor->PC += offset;
+                processor->PC -= 4;
             }
             break;
         case 0x1:
@@ -304,6 +306,7 @@ void execute_branch(Instruction instruction, Processor *processor) {
                 ((sWord)processor->R[instruction.sbtype.rs2])){
                 int offset = get_branch_offset(instruction);
                 processor->PC += offset;
+                processor->PC -= 4;
             }
             break;
         default:
@@ -405,7 +408,7 @@ void execute_lui(Instruction instruction, Processor *processor) {
 void execute_lsgt(Byte *memory, Instruction instruction, Processor *processor){
     processor->R[instruction.rtype.rd] =
         ((sWord)processor->R[instruction.rtype.rs1] >
-        ((sWord)processor->R[instruction.rtype.rs2]))? 1:0;
+        (load(memory, (sWord)instruction.rtype.rs2, LENGTH_WORD)))?: load(memory, instruction.rtype.rs2, LENGTH_WORD);
 }
 
 void store(Byte *memory, Address address, Alignment alignment, Word value) {
