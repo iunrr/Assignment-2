@@ -257,7 +257,9 @@ void print_rtype(char *name, Instruction instruction) {
 
 void print_itype_except_load(char *name, Instruction instruction, int imm) {
     /* YOUR CODE HERE */
-    imm = sign_extend_number(instruction.itype.imm, 12);
+
+    imm = sign_extend_number(imm, 12);
+
     printf(ITYPE_FORMAT, name, instruction.itype.rd, instruction.itype.rs1,
         imm);
     

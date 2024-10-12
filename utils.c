@@ -7,9 +7,10 @@
 int sign_extend_number(unsigned int field, unsigned int n) {
   /* YOUR CODE HERE */
 
-  int mask = 1U << (n - 1);  
-  int newField = (field ^ mask) - mask; 
-  return newField;
+  // int mask = 1U << (n - 1);  
+  // int newField = (field ^ mask) - mask; 
+  // return newField;
+  return (int)field << (32 - n) >> (32 - n);
 }
 
 /* Unpacks the 32-bit machine code instruction given into the correct
