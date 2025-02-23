@@ -1,2 +1,10 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Qe7lcDLP)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=16263498&assignment_repo_type=AssignmentRepo)
+This was an old assignment from my class, CMPT295: Introduction to Computer Systems.
+
+The goal was create an emulator that is able to execute a subset of the RISC-V ISA using C.
+RISC-V is a form of Assembly, instructions include add, mul, sub, and load/store operations.
+
+The files that contain my code are part1.c, part2.c, and utils.c.
+
+utils.c contains various helper functions, mainly the instruction code parsing function.
+part1.c is responsible for decoding the instruction and executing the proper functions to parse the operation.
+part2.c contains the functions necessary for instruction execution.
